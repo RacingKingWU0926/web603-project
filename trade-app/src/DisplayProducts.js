@@ -31,7 +31,6 @@ const DisplayProducts = ({ products, onQuantityChange }) => {
         <div key={product.id} className="row align-items-center my-2 mx-2">
           {/* product display */}
           <div className="col">
-            <p className="product-name">{product.name}</p>
             <img
               className="product-image"
               src={product.image}
@@ -39,6 +38,7 @@ const DisplayProducts = ({ products, onQuantityChange }) => {
               onClick={() => handleShow(product.id)}
               style={{ cursor: "pointer" }}
             />
+            <p className="product-name">{product.name}</p>
           </div>
 
           {/* quantity update */}

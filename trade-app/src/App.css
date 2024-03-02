@@ -39,8 +39,8 @@
 }
 
 .product-image {
-  height: 150px;
-  width: 150px;
+  height: 300px;
+  width: 300px;
   flex: 0; /* Ensures image does not grow and stays at its original width */
 }
 
