@@ -3,10 +3,12 @@ const Inventory = mongoose.model('Inventory');
 
 exports.createInventory = (req, res) => {
   const inventory = new Inventory({
-    prodname: req.body.prodname,
-    qty: req.body.qty,
-    price: req.body.price,
-    status: req.body.status,
+    carBrand: req.body.carBrand,
+    carModel: req.body.carModel,
+    stageSix: req.body.stageSix,
+    fusionParts: req.body.fusionParts,
+    carValue: req.body.carValue,
+    askPrice: req.body.askPrice,
   });
 
   // save an inventory in MongoDB
@@ -92,10 +94,12 @@ exports.updateInventory = (req, res) => {
   .findByIdAndUpdate(
     req.params.id,
     {
-      prodname: req.body.prodname,
-      qty: req.body.qty,
-      price: req.body.price,
-      status: req.body.status
+      carBrand: req.body.carBrand,
+      carModel: req.body.carModel,
+      stageSix: req.body.stageSix,
+      fusionParts: req.body.fusionParts,
+      carValue: req.body.carValue,
+      askPrice: req.body.askPrice,
     },
     {
       new: false
