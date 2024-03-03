@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json())
 require('./app/models/inventory.model.js');
+require('./app/models/user.model.js');
 
 // configure the database
 require('dotenv').config();
@@ -28,6 +29,7 @@ mongoose.connection
 
 // create the server and port
 require('./app/routes/inventory.router.js')(app);
+require('./app/routes/user.router.js')(app);
 const server = app.listen(8080, function () {
   const host = server.address().address
   const port = server.address().port

@@ -22,13 +22,13 @@ function SignIn() {
   };
 
   return (
-    <div class="container">
+    <div className="container">
       <Card style={{ maxWidth: "800px" }} className="mx-auto mt-5">
         <Card.Header className="">
           <h1>Sign In</h1>
         </Card.Header>
         <Card.Body>
-          <Card.Text>
+          <div>
             {!login && (
               <React.Fragment>
                 <h3>Please login using one of the following:</h3>
@@ -46,7 +46,7 @@ function SignIn() {
               </React.Fragment>
             )}
             {login && <Home fbpic={picture} fbdata={data} />}
-          </Card.Text>
+          </div>
         </Card.Body>
       </Card>
     </div>
@@ -56,20 +56,20 @@ function SignIn() {
 function LoginForm() {
   return (
     <form className="border col-6 mt-3 mb-5 p-3 bg-white">
-      <div class="form-group col-10">
+      <div className="form-group col-10">
         <label className="m-2">Email</label>
-        <input type="email" name="email" class="form-control" placeholder="" />
+        <input type="email" name="email" className="form-control" placeholder="" />
       </div>
-      <div class="form-group col-10">
+      <div className="form-group col-10">
         <label className="m-2">Password</label>
         <input
           type="password"
           name="password"
-          class="form-control"
+          className="form-control"
           placeholder=""
         />
       </div>
-      <button type="submit" class="btn btn-success">
+      <button type="submit" className="btn btn-success">
         Login
       </button>
     </form>

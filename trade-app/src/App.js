@@ -7,6 +7,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { products } from "./Products";
 import Cart from "./Cart";
 import DisplayProducts from "./DisplayProducts";
+import InventoryHome from "./InventoryHome";
+import InventoryEdit from "./InventoryEdit";
+import InventoryList from "./InventoryList";
 import Nav from "./Nav";
 import SignIn from "./SignIn";
 
@@ -69,6 +72,11 @@ class App extends Component {
             />
             {/* Sign In Page */}
             <Route path="/signin" element={<SignIn />} />
+
+            {/* User Inventory Page */}
+            <Route path="/userHome/" element={<InventoryHome />} />
+            <Route path="/inventories/" element={<InventoryList />} />
+            <Route path="/inventories/:id" element={<InventoryEdit />} />
           </Routes>
         </div>
       </Router>

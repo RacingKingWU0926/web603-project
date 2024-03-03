@@ -30,7 +30,7 @@ const DisplayProducts = ({ products, onQuantityChange }) => {
       {products.map((product) => (
         <div key={product.id} className="row align-items-center my-2 mx-2">
           {/* product display */}
-          <div className="col">
+          <div className="col-4">
             <img
               className="product-image"
               src={product.image}
@@ -38,11 +38,29 @@ const DisplayProducts = ({ products, onQuantityChange }) => {
               onClick={() => handleShow(product.id)}
               style={{ cursor: "pointer" }}
             />
-            <p className="product-name">{product.name}</p>
+          </div>
+
+          {/* product info */}
+          <div className="col-5">
+            <div className="row">
+              <div className="col-12">
+                <p className="product-name">{product.name}</p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                <p className="product-curr-price">Current Price: ${product.currentPrice}</p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                <p className="product-list-price">List Price: ${product.listPrice}</p>
+              </div>
+            </div>
           </div>
 
           {/* quantity update */}
-          <div className="col quantity-container">
+          <div className="col-3 quantity-container">
             <div className="row">
               <div className="col-12 text-right">
                 <div className="quantity-label">Quantity</div>

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
-import AppNavbar from './Navbar';
+
+import InventoryNavBar from "./NavInventory";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function InventoryEdit() {
   const [item, setItem] = useState({
@@ -10,7 +12,8 @@ function InventoryEdit() {
     stageSix: 0,
     fusionParts: 0,
     carValue: 0,
-    askPrice: 0,
+    askPrice: '0.00',
+    ownerId: "",
   });
 
   const params = useParams();
@@ -35,7 +38,7 @@ function InventoryEdit() {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setItem({ ...item, [name]: value });
-  }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -62,7 +65,7 @@ function InventoryEdit() {
 
   return (
     <div>
-      <AppNavbar />
+      <InventoryNavBar />
       <Container>
         {title}
         <Form onSubmit={handleSubmit}>
@@ -74,7 +77,7 @@ function InventoryEdit() {
               id="carBrand"
               value={item.carBrand || ""}
               onChange={handleChange}
-              autoComplete="carBrand" 
+              autoComplete="carBrand"
             />
           </FormGroup>
           <FormGroup>
@@ -89,14 +92,14 @@ function InventoryEdit() {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="stageSix" className="h5 mt-3">Stage 6 Count</Label>
+            <Label for="stageSix" className="h5 mt-3">Stage 6 Equipped</Label>
             <Input
               type="select"
               name="stageSix"
               id="stageSix"
               value={item.stageSix || 0}
               onChange={handleChange}
-            />
+            >
               <option>0</option>
               <option>1</option>
               <option>2</option>
@@ -105,6 +108,7 @@ function InventoryEdit() {
               <option>5</option>
               <option>6</option>
               <option>7</option>
+            </Input>
           </FormGroup>
           <FormGroup>
             <Label for="fusionParts" className="h5 mt-3">Fusion Parts</Label>
@@ -135,14 +139,23 @@ function InventoryEdit() {
           <FormGroup>
             <Label for="askPrice" className="h5 mt-3">Ask Price</Label>
             <Input
-              type="number"
+              type="text"
               name="askPrice"
               id="askPrice"
-              value={item.askPrice || 0}
-              min="0"
-              max="1000"
+              value={item.askPrice || "0.00"}
               onChange={handleChange}
-              autoComplete="askPrice" 
+              autoComplete="askPrice"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="ownerId" className="h5 mt-3">Your User ID</Label>
+            <Input
+              type="text"
+              name="ownerId"
+              id="ownerId"
+              value={item.ownerId || ""}
+              onChange={handleChange}
+              autoComplete="ownerId"
             />
           </FormGroup>
           <FormGroup>

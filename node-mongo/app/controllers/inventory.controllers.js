@@ -9,6 +9,7 @@ exports.createInventory = (req, res) => {
     fusionParts: req.body.fusionParts,
     carValue: req.body.carValue,
     askPrice: req.body.askPrice,
+    ownerId: req.body.ownerId,
   });
 
   // save an inventory in MongoDB
@@ -52,20 +53,27 @@ exports.getInventory = (req, res) => {
   });
 };
 
-exports.inventories = (req, res) => {
+exports.listInventories = (req, res) => {
+  let queryCondition = {};
+
+  if (req.query.userId) {
+    // Align with the User model
+    queryCondition.ownerId = req.query.userId;
+  }
+
   Inventory
-  .find()
-  .select('-__v')
-  .then(inventoryInfos => {
-    res.status(200).json(inventoryInfos);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({
-      message: 'Error!',
-      error: err.message
+    .find(queryCondition)
+    .select('-__v')
+    .then(inventoryInfos => {
+      res.status(200).json(inventoryInfos);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        message: 'Error!',
+        error: err.message
+      });
     });
-  });
 }
 
 exports.deleteInventory = (req, res) => {

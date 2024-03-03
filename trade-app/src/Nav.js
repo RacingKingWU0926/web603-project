@@ -6,7 +6,9 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 const Nav = ({ itemCount }) => {
   return (
     <div className="navbar nav-bg d-flex p-3">
-      <h1>Marketplace for Collectibles!</h1>
+      <Link to="/">
+        <h1>CSR2 Marketplace for Collectibles!</h1>
+      </Link>
       <div className="d-flex">
         <Link to="/signin" className="nav-link">
           <button className="btn my-3 mx-5">Sign In</button>
