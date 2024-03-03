@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import FacebookLogin from "react-facebook-login";
-import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
+import { Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -69,9 +70,13 @@ function LoginForm() {
           placeholder=""
         />
       </div>
-      <button type="submit" className="btn btn-success">
-        Login
-      </button>
+
+      {/* Suppose User successfully signed in */}
+      <Link to="/userHome/">
+        <button type="submit" className="btn btn-success">
+          Login
+        </button>
+      </Link>
     </form>
   );
 }
